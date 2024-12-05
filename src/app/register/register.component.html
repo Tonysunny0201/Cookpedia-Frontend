@@ -3,17 +3,26 @@
         <div class="col-lg-2"></div>
             <!-- part 1 -->
         <div class="col-lg-4">
-            <form class="border rounded shadow p-5 mt-5">
+            <form [formGroup]="registerForm" (ngSubmit)="register()" class="border rounded shadow p-5 mt-5">
                 <div class="mb-5 text-center"><h3><i class="fa-solid fa-graduation-cap"></i> Cookpedia</h3></div>
                 <div class="mt-5 mb-3">
-                    <input name="username" formControlName="name" type="text" placeholder="Username" class="form-control">
+                    <input name="username" formControlName="username" type="text" placeholder="Username" class="form-control">
                 </div>
+                @if (registerForm.get('username')?.errors && registerForm.get('username')?.touched) {
+                    <div class="text-danger fw-bolder mb-3">*Invalid Username</div>
+                }
                 <div class="mb-3">
                     <input name="email" formControlName="email" type="text" placeholder="E Mail" class="form-control">
                 </div>
+                @if (registerForm.get('email')?.errors && registerForm.get('email')?.touched) {
+                    <div class="text-danger fw-bolder mb-3">*Invalid Email</div>
+                }
                 <div class="mb-3">
-                    <input name="password" formControlName="password" type="text" placeholder="Password" class="form-control">
+                    <input name="password" formControlName="password" type="password" placeholder="Password" class="form-control">
                 </div>
+                @if (registerForm.get('password')?.errors && registerForm.get('password')?.touched) {
+                    <div class="text-danger fw-bolder mb-3">*Invalid Password</div>
+                }
                 <div class="d-grid mt-2">
                     <button type="submit" class="btn btn-success">Register</button>
                 </div>
