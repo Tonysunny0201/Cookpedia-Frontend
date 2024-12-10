@@ -39,7 +39,7 @@
                     @for (recipe of allRecipes | search : searchKey | paginate: { itemsPerPage: 12, currentPage: p } ; track $index) {
                         <div class="col-lg-4">
                             <div class="p-3">
-                                <img class="card-img-top" [src]="recipe.image" alt="">
+                                <img (click)="viewRecipe(recipe._id)" class="card-img-top" [src]="recipe.image" alt="">
                                 <div class="card-body">
                                     <h5 class="card-title">{{recipe.name}}</h5>
                                     <p>Cuisine : {{recipe.cuisine}}</p>

@@ -777,6 +777,9 @@ ANGULAR : ADVANCED FRONTEND TECHNOLOGY
         - syntax : { path:"component-path", component:component-name }
     - use router-outlet selector in root component html page inorder to switch pages according url
     - 'routerLink' property : used to redirect from one html page to another in angular app without refreshing the page 
+    - set up dynamic routing : use column along with variable of url
+    - set up page not found : use path as **
+    - to access dymanic values from a url : use ActivatedRoute class
 
 19. Parent-Child component Data sharing 
     - parent to child data sharing : only parent properties shared with child , to access parent data in child , first child should create property and it uses Input Decorators, Input Decorators is used t get data from parent in child
@@ -786,7 +789,7 @@ ANGULAR : ADVANCED FRONTEND TECHNOLOGY
     - Model Driven forms : first create model for form inside component class 
         - ex : Reactive Forms : import 'ReactFormsModule' in component import array , FormBuuilder class consist of reactive from building methods. Reactive form consist of
             - Form Group : corresponding to form tag 
-            - Form Array : form input tobe stored as array
+            - Form Array : form input tobe stored as array 
             - Form Control : used to link input tag with form group 
 
 
