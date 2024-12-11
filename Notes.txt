@@ -792,7 +792,17 @@ ANGULAR : ADVANCED FRONTEND TECHNOLOGY
             - Form Array : form input tobe stored as array 
             - Form Control : used to link input tag with form group 
 
-
+21. Modules : are used to group components, not standalone components, they are part of modules. we can lazy load modules in application. (--11/12/24--)
+    - Lazy loading in Angular : loading th econtets of web pages whenever it requires. It used to reduce initial website loading time.
+    - Generate module in Angular with routing feature : ng g m module-name --routing
+        - create routing.module.ts : used to set up path / route of the components inside the module
+        - create file module.ts : used to import common packages needed for components inside the module
+    - Generating components inside a module : ng g c module-name/component-name --no-standalone
+    - Lazy load a module in Angular : define lazy load steps inside app.routes.ts (root routing) file , use the following commands
+        - set up lazy loaded path for module should be the file path in app.routes.ts file : 
+        {
+            path:'module-path',loadChildren:()=>import('module-path').then(m=>m.module-name)
+        }
 
 
 

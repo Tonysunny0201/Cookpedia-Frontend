@@ -77,11 +77,20 @@ export class ApiService {
     return this.http.get(`${this.server_url}/user-downloads`,this.appendToken())
   }
 
+  // user-edit
   editUserAPI(reqBody:any){
     return this.http.post(`${this.server_url}/user/edit`,reqBody,this.appendToken())
   }
 
+  // all-users
+  allUsersAPI(){
+    return this.http.get(`${this.server_url}/all-users`,this.appendToken())
+  }
 
+  // download-list
+  allDownloadListAPI(){
+    return this.http.get(`${this.server_url}/download-list`,this.appendToken())
+  }
 
   
 }
