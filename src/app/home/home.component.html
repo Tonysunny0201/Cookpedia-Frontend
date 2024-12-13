@@ -68,10 +68,12 @@
         <marquee>
             <div class="d-flex my-5">
                 <!-- testimony -->
-                <div class="rounded border w-100 p-3 me-2">
-                    <h5>name</h5>
-                    <p style="white-space: normal; width: 100%; text-align: justify;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex beatae cupiditate molestiae voluptatem, ipsum neque.</p>
-                </div>
+                 @for (item of allApprovedFeedbacks; track $index) {
+                    <div class="rounded border w-100 p-3 me-2">
+                        <h5>{{item.name}}</h5>
+                        <p style="white-space: normal; width: 100%; text-align: justify;">{{item.message}}</p>
+                    </div>
+                 }
             </div>
         </marquee>
      </div>

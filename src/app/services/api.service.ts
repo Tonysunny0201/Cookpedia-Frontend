@@ -92,5 +92,21 @@ export class ApiService {
     return this.http.get(`${this.server_url}/download-list`,this.appendToken())
   }
 
+  // all-feedback
+  getallFeedbackListAPI(){
+    return this.http.get(`${this.server_url}/all-feedback`,this.appendToken())
+  }
+
+  // feedback/67502888d16e67b0d742cd26/update?status=Approved
+  updateFeedbackStatusAPI(feedBackId:string,status:string){
+    return this.http.get(`${this.server_url}/feedback/${feedBackId}/update?status=${status}`,this.appendToken())
+  }
+
+  // all-approved-feedback
+  getallApprovedFeedbackAPI(){
+    return this.http.get(`${this.server_url}/all-approved-feedback`)
+  }
+
+
   
 }

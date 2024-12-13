@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-request-list',
@@ -6,5 +7,29 @@ import { Component } from '@angular/core';
   styleUrl: './request-list.component.css'
 })
 export class RequestListComponent {
+
+  allFeedbacks:any=[]
+
+  constructor(private api:ApiService){}
+
+  ngOnInit(){
+    this.getAllFeedbacks()
+  }
+
+  getAllFeedbacks(){
+    this.api.getallFeedbackListAPI().subscribe((res:any)=>{
+      this.allFeedbacks = res
+      console.log((this.allFeedbacks));
+    })
+  }
+
+  updateFeedback(id:string,status:string){
+    this.api.updateFeedbackStatusAPI(id,status).subscribe((res:any)=>{
+      this.getAllFeedbacks()
+    })
+  }
+
+
+  
 
 }
