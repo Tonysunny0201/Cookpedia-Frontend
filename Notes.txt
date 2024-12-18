@@ -689,8 +689,11 @@ ANGULAR : ADVANCED FRONTEND TECHNOLOGY
 3. Angular Installation
     - Install Angular CLI : npm i -g @angular/cli
     - To check angular version : ng v
+    - to clear (to clear the terminal) : cls 
 4. Angular Project Creation : ng new project-name , choose style sheet  and ssr 
     - Run an Angular project : ng serve / ng s inside angular project, to view angular project in browser open http://localhost:4200/
+    - To get Production / build : ng build 
+
 5. Angular Project Files & Folder structure
     - tsconfig.spec.json , tsconfig.json , tsconfig.app.json : used to TypeScript installation and testing
     - package.json file : npm configuration file 
@@ -748,8 +751,9 @@ ANGULAR : ADVANCED FRONTEND TECHNOLOGY
         - Custom Pipes : use command - ng g p pipe-folder/pipe-name , define logic to convert data tp another format inside pipe class transform function. 
 12. service : used to share common logic between different components in an angular app (--27/11/24--)
     - create service : ng g s service-folder/service-name 
-13. Dependency Injection : used to access properties/functions of a class to another class , Di can be performed only between component amd service or component and predefined class in angular. DI is performed inside the Constructor argument of a class 
-    - syntax : constructor(access-specifiers variable-name:dependent-class-name){} 
+13. Dependency Injection : used to access properties/functions of a class to another class , Di can be performed only between component amd service or component and predefined class in angular. DI is performed inside the Constructor argument of a class , inside a function dependencies Injection can be performed with help of Inject method  
+    - syntax : constructor(access-specifiers variable-name:dependent-class-name){} / const variableName = inject(dependent-class-name)
+
 14. Asynchronus function handling in TypeScript : using 'Obserable' to handle Asynchronus functions. Obserable can resolve multiple Asynchronus function at a time where as promise can only resolve one function at a time. Angular RxJS library is used to resolve Asynchronus function.
     - To resolve Obserable to get response angular uses 'subscribe' method, subscribe method argument can be of 2 types , callback function where its argument will give you the response. otherwise we can use object , and its next key value will give you success response, error key value will give server error response 
 15. API Call : use 'HttpClient' class methods will return Obserable 
@@ -779,10 +783,14 @@ ANGULAR : ADVANCED FRONTEND TECHNOLOGY
     - 'routerLink' property : used to redirect from one html page to another in angular app without refreshing the page 
     - set up dynamic routing : use column along with variable of url
     - set up page not found : use path as **
-    - to access dymanic values from a url : use ActivatedRoute class
+    - to access dymanic values from a url associated with a component :
+        - use ActivatedRoute class has params property
+        - use withComponentInputBinding(), use Input() Decorators ot get dynamic variable of url in component
+            - Standlone applications : Inside your app.config.ts file, pass the method withComponentInputBinding() as optional argument (make sure to actually call the function) to the provideRouter() method 
+            - In NgModules : set bindToComponentInputs : true in imports array of module 
 
 19. Parent-Child component Data sharing 
-    - parent to child data sharing : only parent properties shared with child , to access parent data in child , first child should create property and it uses Input Decorators, Input Decorators is used t get data from parent in child
+    - parent to child data sharing : only parent properties shared with child , to access parent data in child , first child should create property and it uses Input Decorators, Input Decorators is used to get data from parent in child
     - child to parent data sharing : only child events shared with parent , to share events from child it uses @Output Decorators
 20. Form handling in Angular (--29/11/24--)
     - Template driven forms : first design html part of form , assign form data to component properties , use ngForm , ngModel Directives to manage template driven forms 
@@ -810,7 +818,10 @@ ANGULAR : ADVANCED FRONTEND TECHNOLOGY
         - Update style.css file import theme used in material
     - HighCharts : to display charts in angular projects
         - Install packages : npm i highcharts-angular highcharts
-
+23. Route Guards in Angular : Used to protect route from unauthorised access. It controls navigation to a route based on whether the user is authenticated  or not. (--18/12/24--)
+    - Different Guards in angular
+        - CanActivate : It helps in determining whether a route can be activated or not based on a condition
+        - To add guards to angular : ng g g guards-folder/guards-name
 
 
 

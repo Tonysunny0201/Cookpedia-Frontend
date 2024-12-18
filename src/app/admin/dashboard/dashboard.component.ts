@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
 import * as Highcharts from 'highcharts';
@@ -24,39 +24,39 @@ export class DashboardComponent {
 
 
   constructor(private router:Router, private api:ApiService){
-    this.chartOptions = {
-      chart :{
-        type:'bar'
-      },
-      title:{
-        text:'Analysis of Download Recipes Based on Cuisine',
-        align:'left'
-      },
-      xAxis:{
-        type:'category'
-      },
-      yAxis:{
+    if(localStorage.getItem("chart")){
+      let chartData = JSON.parse(localStorage.getItem("chart")||"")
+      this.chartOptions = {
+        chart :{
+          type:'bar'
+        },
         title:{
-          text:'Total Download Recipe Count'
-        }
-      },
-      legend:{
-        enabled:false
-      },
-      credits:{
-        enabled:false
-      },
-      series:[{
-        name:'Cuisine',
-        colorByPoint:true,
-        type:'bar',
-        data:[
-          {name:"Italian",y:4},
-          {name:"Asian",y:2},
-          {name:"Thai",y:1}
-        ]
-      }]
+          text:'Analysis of Download Recipes Based on Cuisine',
+          align:'left'
+        },
+        xAxis:{
+          type:'category'
+        },
+        yAxis:{
+          title:{
+            text:'Total Download Recipe Count'
+          }
+        },
+        legend:{
+          enabled:false
+        },
+        credits:{
+          enabled:false
+        },
+        series:[{
+          name:'Cuisine',
+          colorByPoint:true,
+          type:'bar',
+          data:chartData
+        }]
+      }
     }
+    
   }
 
   ngOnInit(){
@@ -96,6 +96,7 @@ export class DashboardComponent {
 
   logoutAdmin(){
     sessionStorage.clear()
+    localStorage.clear()
     this.router.navigateByUrl("/")
   }
 
