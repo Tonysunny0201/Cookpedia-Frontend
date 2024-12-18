@@ -804,6 +804,13 @@ ANGULAR : ADVANCED FRONTEND TECHNOLOGY
             path:'module-path',loadChildren:()=>import('module-path').then(m=>m.module-name)
         }
 
+22. Styling libraries in Angular (--17/12/24--)
+    - Angular Material : Material Design components for Angular (https://material.angular.io/)
+        - Install Angular Material : ng add @angular/material 
+        - Update style.css file import theme used in material
+    - HighCharts : to display charts in angular projects
+        - Install packages : npm i highcharts-angular highcharts
+
 
 
 
